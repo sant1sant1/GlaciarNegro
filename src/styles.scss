@@ -1,0 +1,55 @@
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+    .logo {
+        padding: 5%;
+        width: 25%;
+        border-radius: 50%;    }
+    h1{
+        text-align: center;
+    }
+}
+
+.Botones{
+    display: flex;
+    justify-content: space-between;
+    li{
+        a{
+            color: white;
+            font-weight: 1000;
+            text-decoration: none;
+        }
+        text-align: center;
+        width: 20%;
+        height: 20%;
+        font-size: smaller;
+        padding: 3%;
+        background-color: greenyellow;
+        border-radius: 40%;
+    }
+    .Carrito {
+        width: 10%;
+    }
+}
+.shortFluor {
+    
+    width: 25%;
+}
+
+.contador{
+    text-align: center;
+}
+
+.productos {
+    display: flex;
+}
+
+section{
+    justify-content: center
+}
