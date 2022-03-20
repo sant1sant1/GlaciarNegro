@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../media/logo.jpeg';
-import Cart from './CartWidget';
+import CartWidget from './CartWidget';
 import DarkMode from './DarkMode';
 
 const NavBar = () => {
@@ -11,21 +11,23 @@ const NavBar = () => {
                 <Link to={"/"}>
                     <img className="logo" src={logo}></img>
                 </Link>
+                <Link to={"/"}>
                 <h1>Glaciar negro</h1>
+                </Link>
                 <DarkMode />
 
             </div>
             <ul className='Botones'>
-                <Link to={"cat1"}>
+                <Link to={"/categoria/cat1"}>
                     <li><a href="#">Ropa de Hombre</a></li>
                 </Link>
-                <Link to={"cat2"}>
+                <Link to={"/categoria/cat2"}>
                     <li><a href="#">Ropa de Mujer</a></li>
                 </Link>
-                <Link to={"cat3"}>
+                <Link to={"/categoria/cat3"}>
                     <li><a href="#">Contacto</a></li>
                 </Link>
-                <Cart />
+                <NavLink to="/Carito">{CartWidget}</NavLink>
             </ul>
         </>
     )

@@ -1,27 +1,31 @@
 import { dark } from '@mui/material/styles/createPalette'
 import React, { useState, useEffect } from "react";
-import DarkMode from './DarkMode'
-import Item from './Item'
-import ItemDetailContainer from './ItemDetailContainer';
+import DarkMode from './DarkMode';
+import Item from './Item';
 import ProductosIniciales from "./Items";
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = (greeting) => {
-    let productosIniciales = ProductosIniciales
-    const [productos, setProductos] = useState([])
-    const [error, setError] = useState(null)
-    let [loading, setLoading] = useState(true)
-
+const ItemListContainer = ({greeting}) => {
+    let productosIniciales = ProductosIniciales;
+    const [productos, setItems] = useState([]);
+    const [error, setError] = useState(null);
+    let [loading, setLoading] = useState(true);
+    const {catId} = useParams();
+    
     useEffect(() => {
-        const promesa = new Promise((res, rej) => {
-            setTimeout(() => {
-                setProductos(productosIniciales)
-                setLoading(false)
-            }, 2000)
+        const getItems = new Promise((resolve) => {
+            setTimeout(() =>{
+                const myData = catId?
+                    ProductosIniciales.filter((item) => item.categoria === catId)
+                    :ProductosIniciales;
+                resolve(myData)
+            },2000)
+            
         })
 
-        promesa
-            .then((respuestaDeLaApi) => {
-                setProductos(productosIniciales)
+        getItems
+            .then((res) => {
+                setItems(res)
             })
             .catch((errorDeLaApi) => {
                 setError(`El error es: ${errorDeLaApi}`)
@@ -29,14 +33,11 @@ const ItemListContainer = (greeting) => {
             .finally(() => {
                 setLoading(false)
             })
-    }, [])
+    }, [catId])
 
     return (
         <>
-            <section className="container">
-               
-                
-                
+            <section className="container">             
                 <Item productos={productos} loading={loading}/>
             </section>
         </>

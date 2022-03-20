@@ -1,5 +1,7 @@
-import ShortFluor from "../media/ShortFluor.jpeg"
-import ShortFluorA from "../media/ShortFluorA.jpeg"
+import ShortFluor from "../media/ShortFluor.jpeg";
+import ShortFluorA from "../media/ShortFluorA.jpeg";
+import ShortPollera from "../media/ShortPollera.jpeg";
+import ShortPolleraA from "../media/ShortPolleraA.jpeg";
 
 let ProductosIniciales = [
     {
@@ -9,16 +11,18 @@ let ProductosIniciales = [
         photo: `${ShortFluor}`,
         photo2: `${ShortFluorA}`,
         talles: "M",
-        colores: "rosa, naranja, azul"
+        colores: "rosa, naranja, azul",
+        categoria: "cat1"
     },
     {
         id: 2,
-        nombre:"Buzobich",
-        precio: 2650,
-        photo: `${ShortFluor}`,
-        photo2: `${ShortFluorA}`,
+        nombre:"Short Pollera",
+        precio: 2690,
+        photo: `${ShortPollera}`,
+        photo2: `${ShortPolleraA}`,
         talles: "M",
-        colores: "rosa, naranja, azul"
+        colores: "rosa, naranja, azul",
+        categoria: "cat2"
     },
     {
         id: 3,
@@ -27,7 +31,8 @@ let ProductosIniciales = [
         photo: `${ShortFluor}`,
         photo2: `${ShortFluorA}`,
         talles: "M",
-        colores: "rosa, naranja, azul"
+        colores: "rosa, naranja, azul",
+        categoria: "cat3"
     }
 ]
 

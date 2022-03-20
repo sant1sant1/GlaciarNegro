@@ -16,6 +16,7 @@ const Item = ({ productos, loading }) => {
                             <img id="Photo" className="shortFluor" src={producto.photo} />
                             <li>{producto.precio}</li>
                             <li>{producto.colores}</li>
+                            <li>{producto.categoria}</li>
                             </Link >    
                         </>
             )
