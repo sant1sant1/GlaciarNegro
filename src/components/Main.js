@@ -3,7 +3,7 @@ import ItemListContainer from "./ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer";
 import ItemCount from "./ItemCount"
 
-const Main = (productos, loading) => {
+const Main = () => {
 
     return (
         <>

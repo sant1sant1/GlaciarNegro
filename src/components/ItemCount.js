@@ -1,11 +1,11 @@
 import React from 'react';
 import {useState} from "react"
 
-const ItemCount = () => {
+const ItemCount = ({stock,initial,onAdd}) => {
     
    
 
-    const [contador, setContador] = useState(0)
+    const [contador, setContador] = useState(initial)
 
     const HandleClick = () => {
         if (contador < 10){
@@ -19,7 +19,7 @@ const ItemCount = () => {
         if (contador > 1){
             setContador(contador - 1)
         } else {
-            setContador(0)
+            setContador(1)
         }
     }
 

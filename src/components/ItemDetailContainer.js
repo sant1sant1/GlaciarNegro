@@ -2,16 +2,22 @@ import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import ProductosIniciales from "./Items";
 import { useParams } from 'react-router-dom';
+import ItemCount from "./ItemCount";
 
-const ItemDetailContainer = (greeting) => {
 
-    const { itemId } = useParams()
 
-    console.log(itemId)
+const ItemDetailContainer = () => {
+
+    const onAdd = () =>{
+        console.log("ayuda")
+    }
+
+    const { id } = useParams()
+    console.log(id)
 
     let productosIniciales = ProductosIniciales
 
-    const [productos, setProductos] = useState({})
+    const [productos, setProductos] = useState([])
 
     const [error, setError] = useState(null)
 
@@ -24,7 +30,7 @@ const ItemDetailContainer = (greeting) => {
         const getItems = new Promise((resolve) => {
 
             setTimeout(() => {
-                const myData = ProductosIniciales.find((item) => item.id === itemId);
+                const myData = ProductosIniciales.find((item) => item.id == id);
 
                 resolve(myData);
             },
@@ -34,7 +40,7 @@ const ItemDetailContainer = (greeting) => {
         getItems
 
             .then((res) => {
-                setProductos(res)
+                setProductos([res])
             })
 
             .catch((errorDeLaApi) => {
@@ -45,17 +51,19 @@ const ItemDetailContainer = (greeting) => {
                 setLoading(false)
             })
 
-    }, [itemId]);
+    }, [id]);
 
 
 
-    return (
+    return ( 
         <>
-            <section className="container">
-                {loading ? "cargando" : <ItemDetail productos={productos} />}
-            </section>
+
+        {loading ? "cargando" : <ItemDetail productos={productos}/>}
+
+         <ItemCount initial={1} stock={5} onAdd={onAdd}/> 
         </>
     )
+    
 }
 
 export default ItemDetailContainer
